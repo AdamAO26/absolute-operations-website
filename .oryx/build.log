@@ -1,0 +1,150 @@
+2026-05-09 14:14:33.4875|INFO|Microsoft.Oryx.BuildScriptGeneratorCli.CommandBase|Oryx command line: /usr/local/buildscriptgen/GenerateBuildScript.dll build --manifest-dir /workspaces/.oryx --property packagedir=/home/codespace/.local/lib/python3.12/site-packages --property python_version=3.12.1 --log-file /workspaces/.oryx/build.log /workspaces/absolute-operations-website
+2026-05-09 14:14:34.5576|DEBUG|Microsoft.Oryx.BuildScriptGenerator.DefaultBuildScriptGenerator|Available checkers: 5
+2026-05-09 14:14:35.3662|DEBUG|Microsoft.Oryx.Detector.Node.NodeDetector|Could not get version from package Json.
+2026-05-09 14:14:35.4421|DEBUG|Microsoft.Oryx.BuildScriptGenerator.Node.NodeSdkStorageVersionProvider|Getting list of available versions for platform nodejs.
+2026-05-09 14:14:36.0131|DEBUG|Microsoft.Oryx.BuildScriptGenerator.Node.NodeSdkStorageVersionProvider|Using the Sdk storage url https://oryx-cdn.microsoft.io.
+2026-05-09 14:14:36.0440|INFO|System.Net.Http.HttpClient.general.LogicalHandler|Start processing HTTP request GET https://oryx-cdn.microsoft.io/nodejs?restype=container&comp=list&include=metadata&marker=
+2026-05-09 14:14:36.0689|TRACE|System.Net.Http.HttpClient.general.LogicalHandler|Request Headers:
+User-Agent: oryx/1.0
+
+2026-05-09 14:14:36.1470|INFO|System.Net.Http.HttpClient.general.ClientHandler|Sending HTTP request GET https://oryx-cdn.microsoft.io/nodejs?restype=container&comp=list&include=metadata&marker=
+2026-05-09 14:14:36.1486|TRACE|System.Net.Http.HttpClient.general.ClientHandler|Request Headers:
+User-Agent: oryx/1.0
+
+2026-05-09 14:14:39.0879|INFO|System.Net.Http.HttpClient.general.ClientHandler|Received HTTP response headers after 2886.0245ms - 200
+2026-05-09 14:14:39.1145|TRACE|System.Net.Http.HttpClient.general.ClientHandler|Response Headers:
+Date: Sat, 09 May 2026 14:14:38 GMT
+Transfer-Encoding: chunked
+Connection: keep-alive
+x-ms-request-id: 77fb7ebc-f01e-0024-71be-dfb81a000000
+x-ms-version: 2009-09-19
+x-azure-ref: 20260509T141438Z-174f799bf9dmcqh8hC1PHX0rp4000000016g00000000mrh2
+X-Cache: CONFIG_NOCACHE
+Content-Type: application/xml
+
+2026-05-09 14:14:39.1380|INFO|System.Net.Http.HttpClient.general.LogicalHandler|End processing HTTP request after 3114.2995ms - 200
+2026-05-09 14:14:39.1383|TRACE|System.Net.Http.HttpClient.general.LogicalHandler|Response Headers:
+Date: Sat, 09 May 2026 14:14:38 GMT
+Transfer-Encoding: chunked
+Connection: keep-alive
+x-ms-request-id: 77fb7ebc-f01e-0024-71be-dfb81a000000
+x-ms-version: 2009-09-19
+x-azure-ref: 20260509T141438Z-174f799bf9dmcqh8hC1PHX0rp4000000016g00000000mrh2
+X-Cache: CONFIG_NOCACHE
+Content-Type: application/xml
+
+2026-05-09 14:14:39.4907|INFO|System.Net.Http.HttpClient.general.LogicalHandler|Start processing HTTP request GET https://oryx-cdn.microsoft.io/nodejs?restype=container&comp=list&include=metadata&marker=
+2026-05-09 14:14:39.4907|TRACE|System.Net.Http.HttpClient.general.LogicalHandler|Request Headers:
+User-Agent: oryx/1.0
+
+2026-05-09 14:14:39.4933|INFO|System.Net.Http.HttpClient.general.ClientHandler|Sending HTTP request GET https://oryx-cdn.microsoft.io/nodejs?restype=container&comp=list&include=metadata&marker=
+2026-05-09 14:14:39.4933|TRACE|System.Net.Http.HttpClient.general.ClientHandler|Request Headers:
+User-Agent: oryx/1.0
+
+2026-05-09 14:14:39.5897|INFO|System.Net.Http.HttpClient.general.ClientHandler|Received HTTP response headers after 96.251ms - 200
+2026-05-09 14:14:39.5905|TRACE|System.Net.Http.HttpClient.general.ClientHandler|Response Headers:
+Date: Sat, 09 May 2026 14:14:39 GMT
+Transfer-Encoding: chunked
+Connection: keep-alive
+x-ms-request-id: 77fb8252-f01e-0024-45be-dfb81a000000
+x-ms-version: 2009-09-19
+x-azure-ref: 20260509T141439Z-174f799bf9dmcqh8hC1PHX0rp4000000016g00000000mrke
+X-Cache: CONFIG_NOCACHE
+Content-Type: application/xml
+
+2026-05-09 14:14:39.5913|INFO|System.Net.Http.HttpClient.general.LogicalHandler|End processing HTTP request after 100.625ms - 200
+2026-05-09 14:14:39.5913|TRACE|System.Net.Http.HttpClient.general.LogicalHandler|Response Headers:
+Date: Sat, 09 May 2026 14:14:39 GMT
+Transfer-Encoding: chunked
+Connection: keep-alive
+x-ms-request-id: 77fb8252-f01e-0024-45be-dfb81a000000
+x-ms-version: 2009-09-19
+x-azure-ref: 20260509T141439Z-174f799bf9dmcqh8hC1PHX0rp4000000016g00000000mrke
+X-Cache: CONFIG_NOCACHE
+Content-Type: application/xml
+
+2026-05-09 14:14:39.8212|DEBUG|Microsoft.Oryx.BuildScriptGenerator.Node.NodeSdkStorageVersionProvider|Getting the default version from url https://oryx-cdn.microsoft.io/nodejs/defaultVersion.focal-scm.txt.
+2026-05-09 14:14:39.8212|INFO|System.Net.Http.HttpClient.general.LogicalHandler|Start processing HTTP request GET https://oryx-cdn.microsoft.io/nodejs/defaultVersion.focal-scm.txt
+2026-05-09 14:14:39.8224|TRACE|System.Net.Http.HttpClient.general.LogicalHandler|Request Headers:
+User-Agent: oryx/1.0
+
+2026-05-09 14:14:39.8224|INFO|System.Net.Http.HttpClient.general.ClientHandler|Sending HTTP request GET https://oryx-cdn.microsoft.io/nodejs/defaultVersion.focal-scm.txt
+2026-05-09 14:14:39.8224|TRACE|System.Net.Http.HttpClient.general.ClientHandler|Request Headers:
+User-Agent: oryx/1.0
+
+2026-05-09 14:14:39.8275|INFO|System.Net.Http.HttpClient.general.ClientHandler|Received HTTP response headers after 4.5937ms - 200
+2026-05-09 14:14:39.8275|TRACE|System.Net.Http.HttpClient.general.ClientHandler|Response Headers:
+Date: Sat, 09 May 2026 14:14:39 GMT
+Connection: keep-alive
+ETag: 0x8DE831F92FCB976
+x-ms-request-id: b30a072e-001e-000e-2fab-de89c4000000
+x-ms-version: 2009-09-19
+x-ms-meta-branch: refresh-node-version-feb24
+x-ms-meta-checksum: c85e596dd551f631fd29c2e8c2fdbdec1af25653b49c2216a93f9697d481be4a9e3d03a74e5ae8cdd6ced9fb9b62cf3a7b4e83009b18b87ffc4215402e292614
+x-ms-meta-commit: 84b45c66a541d1ece5b990471d7c62d5018d8260
+x-ms-meta-buildnumber: 20240221.1
+x-ms-lease-status: unlocked
+x-ms-blob-type: BlockBlob
+x-azure-ref: 20260509T141439Z-174f799bf9dmcqh8hC1PHX0rp4000000016g00000000mrm2
+X-Cache: TCP_HIT
+x-fd-int-roxy-purgeid: 84133770
+Accept-Ranges: bytes
+Content-Type: text/plain
+Content-Length: 3
+Last-Modified: Mon, 16 Mar 2026 05:47:56 GMT
+
+2026-05-09 14:14:39.8285|INFO|System.Net.Http.HttpClient.general.LogicalHandler|End processing HTTP request after 6.6681ms - 200
+2026-05-09 14:14:39.8285|TRACE|System.Net.Http.HttpClient.general.LogicalHandler|Response Headers:
+Date: Sat, 09 May 2026 14:14:39 GMT
+Connection: keep-alive
+ETag: 0x8DE831F92FCB976
+x-ms-request-id: b30a072e-001e-000e-2fab-de89c4000000
+x-ms-version: 2009-09-19
+x-ms-meta-branch: refresh-node-version-feb24
+x-ms-meta-checksum: c85e596dd551f631fd29c2e8c2fdbdec1af25653b49c2216a93f9697d481be4a9e3d03a74e5ae8cdd6ced9fb9b62cf3a7b4e83009b18b87ffc4215402e292614
+x-ms-meta-commit: 84b45c66a541d1ece5b990471d7c62d5018d8260
+x-ms-meta-buildnumber: 20240221.1
+x-ms-lease-status: unlocked
+x-ms-blob-type: BlockBlob
+x-azure-ref: 20260509T141439Z-174f799bf9dmcqh8hC1PHX0rp4000000016g00000000mrm2
+X-Cache: TCP_HIT
+x-fd-int-roxy-purgeid: 84133770
+Accept-Ranges: bytes
+Content-Type: text/plain
+Content-Length: 3
+Last-Modified: Mon, 16 Mar 2026 05:47:56 GMT
+
+2026-05-09 14:14:40.0480|DEBUG|Microsoft.Oryx.BuildScriptGenerator.Node.NodeSdkStorageVersionProvider|Got the default version for nodejs as 16.
+2026-05-09 14:14:40.2027|ERROR|Microsoft.Oryx.Detector.Python.PythonDetector|Cound not find 726571756972656d656e74732e747874 at the root of the repo. More information: https://aka.ms/requirements-not-found
+2026-05-09 14:14:40.2027|ERROR|Microsoft.Oryx.Detector.Python.PythonDetector|Missing setup.py at the root of the repo. More information: https://aka.ms/requirements-not-found
+2026-05-09 14:14:40.2027|ERROR|Microsoft.Oryx.Detector.Python.PythonDetector|Missing setup.py at the root of the repo. More information: https://aka.ms/requirements-not-found
+2026-05-09 14:14:40.2032|ERROR|Microsoft.Oryx.Detector.Python.PythonDetector|Missing uv.lock at the root of the repo. More information: https://aka.ms/requirements-not-found
+2026-05-09 14:14:40.2032|DEBUG|Microsoft.Oryx.Detector.Python.PythonDetector|Could not find file 'runtime.txt' in source repo
+2026-05-09 14:14:40.2063|INFO|Microsoft.Oryx.Detector.Python.PythonDetector|Could not find any file with extension '*.py' in the repo.
+2026-05-09 14:14:40.2079|DEBUG|Microsoft.Oryx.Detector.DotNetCore.ExplicitProjectFileProvider|No request to build a particular project file explicitly using the PROJECT environment variable
+2026-05-09 14:14:40.2103|DEBUG|Microsoft.Oryx.Detector.DotNetCore.ProbeAndFindProjectFileProvider|Could not find any files with extension 'csproj' in repo.
+2026-05-09 14:14:40.2113|DEBUG|Microsoft.Oryx.Detector.DotNetCore.ProbeAndFindProjectFileProvider|Could not find any files with extension 'fsproj' in repo.
+2026-05-09 14:14:40.2113|DEBUG|Microsoft.Oryx.Detector.Php.PhpDetector|File 'composer.json' does not exist in source repo
+2026-05-09 14:14:40.2132|INFO|Microsoft.Oryx.Detector.Php.PhpDetector|Could not find any file with extension '*.php' in the repo.
+2026-05-09 14:14:40.2143|DEBUG|Microsoft.Oryx.Detector.Ruby.RubyDetector|Could not find Gemfile in repo
+2026-05-09 14:14:40.2143|DEBUG|Microsoft.Oryx.Detector.Ruby.RubyDetector|Could not find typical Ruby files in repo
+2026-05-09 14:14:40.2143|DEBUG|Microsoft.Oryx.Detector.Ruby.RubyDetector|App in repo is not a Ruby app
+2026-05-09 14:14:40.2143|ERROR|Microsoft.Oryx.Detector.Golang.GolangDetector|Could not find go.mod in repo
+2026-05-09 14:14:40.2177|DEBUG|Microsoft.Oryx.Detector.Java.JavaDetector|Could not find any files with the following extensions in the repo: java, jsp
+2026-05-09 14:14:40.2204|DEBUG|Microsoft.Oryx.BuildScriptGenerator.Node.NodePlatform|Dynamic install is enabled.
+2026-05-09 14:14:40.2220|DEBUG|Microsoft.Oryx.BuildScriptGenerator.Node.NodePlatformInstaller|Version 16.20.2 was not found to be installed at /opt/nodejs/ or /opt/nodejs
+2026-05-09 14:14:40.2220|DEBUG|Microsoft.Oryx.BuildScriptGenerator.Node.NodePlatform|Node version 16.20.2 is not installed. So generating an installation script snippet for it.
+2026-05-09 14:14:40.2234|WARN|Microsoft.Oryx.BuildScriptGenerator.Node.NodePlatformInstaller|Environment variable 'ORYX_SDK_STORAGE_BACKUP_BASE_URL' for Backup SDK storage base URL is not set.
+2026-05-09 14:14:40.2248|INFO|Microsoft.Oryx.BuildScriptGenerator.DefaultBuildScriptGenerator|If nodejs is not set as environment, it'll be set to 16.20.2 via benv
+2026-05-09 14:14:40.2268|DEBUG|Microsoft.Oryx.BuildScriptGenerator.DefaultCompatiblePlatformDetector|Detecting platform using 'nodejs'...
+2026-05-09 14:14:40.2278|DEBUG|Microsoft.Oryx.BuildScriptGenerator.DefaultCompatiblePlatformDetector|Detected platform 'nodejs' with version '16.20.2'.
+2026-05-09 14:14:40.2288|DEBUG|Microsoft.Oryx.BuildScriptGenerator.DefaultBuildScriptGenerator|Repo is clean for nodejs
+2026-05-09 14:14:40.2399|INFO|Microsoft.Oryx.BuildScriptGenerator.Node.NodePlatform|Using npm
+2026-05-09 14:14:40.5541|INFO|Microsoft.Oryx.BuildScriptGenerator.Node.NodePlatform|Detected the following frameworks: React
+2026-05-09 14:14:41.2135|DEBUG|Microsoft.Oryx.BuildScriptGenerator.DefaultBuildScriptGenerator|Platform nodejs with version 16.20.2 was used.
+2026-05-09 14:14:41.2135|DEBUG|Microsoft.Oryx.BuildScriptGenerator.DefaultBuildScriptGenerator|Running checkers
+2026-05-09 14:14:41.2263|INFO|Microsoft.Oryx.BuildScriptGenerator.DefaultBuildScriptGenerator|Running 0 applicable checkers for 1 tools: nodejs
+2026-05-09 14:14:41.2477|INFO|Microsoft.Oryx.BuildScriptGenerator.DefaultBuildScriptGenerator|Build Property Key:PlatformName value: nodejs is written into manifest
+2026-05-09 14:14:41.3336|DEBUG|Microsoft.Oryx.BuildScriptGenerator.DefaultBuildScriptGenerator|Path to appsvc.yaml /workspaces/absolute-operations-website/appsvc.yaml
+2026-05-09 14:14:41.3336|DEBUG|Microsoft.Oryx.BuildScriptGenerator.DefaultBuildScriptGenerator|No appsvc.yaml found
+2026-05-09 14:14:41.3803|DEBUG|Microsoft.Oryx.BuildScriptGeneratorCli.BuildCommand|No checker messages emitted

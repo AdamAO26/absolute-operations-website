@@ -1,0 +1,7 @@
+NodeVersion="16.20.2"
+nodeBuildCommandsFile="/workspaces/.oryx/oryx-build-commands.txt"
+Frameworks="React"
+OperationId="8c179dee7adab4f7"
+SourceDirectoryInBuildContainer="/workspaces/absolute-operations-website"
+PlatformName="nodejs"
+CompressDestinationDir="false"
