@@ -79,7 +79,7 @@ button, input, textarea, select { font: inherit; }
 @media (max-width: 1700px) {
   .brand-logo {
     height: 34px;
-    width: clamp(135px, 15vw, 220px);
+    width: clamp(130px, 14vw, 200px);
   }
 }
 
