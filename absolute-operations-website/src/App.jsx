@@ -22,16 +22,25 @@ function ScrollToTop() {
 
 function RefreshOnReturn() {
   useEffect(() => {
-    let leftPage = false;
+    const refreshAfterMs = 15 * 60 * 1000;
+    let leftAt = null;
 
     const markLeftPage = () => {
-      leftPage = true;
+      leftAt = Date.now();
+      sessionStorage.setItem('absoluteOpsLeftAt', String(leftAt));
     };
 
-    const refreshIfReturning = () => {
-      if (leftPage) {
+    const refreshIfAwayTooLong = () => {
+      const savedLeftAt = Number(sessionStorage.getItem('absoluteOpsLeftAt') || leftAt || 0);
+
+      if (savedLeftAt && Date.now() - savedLeftAt >= refreshAfterMs) {
+        sessionStorage.removeItem('absoluteOpsLeftAt');
         window.location.reload();
+        return;
       }
+
+      leftAt = null;
+      sessionStorage.removeItem('absoluteOpsLeftAt');
     };
 
     const handleVisibilityChange = () => {
@@ -40,17 +49,17 @@ function RefreshOnReturn() {
       }
 
       if (document.visibilityState === 'visible') {
-        refreshIfReturning();
+        refreshIfAwayTooLong();
       }
     };
 
-    window.addEventListener('blur', markLeftPage);
-    window.addEventListener('focus', refreshIfReturning);
+    window.addEventListener('pagehide', markLeftPage);
+    window.addEventListener('pageshow', refreshIfAwayTooLong);
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
-      window.removeEventListener('blur', markLeftPage);
-      window.removeEventListener('focus', refreshIfReturning);
+      window.removeEventListener('pagehide', markLeftPage);
+      window.removeEventListener('pageshow', refreshIfAwayTooLong);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, []);
@@ -61,6 +70,7 @@ function RefreshOnReturn() {
 export default function App() {
   return (
     <>
+      <RefreshOnReturn />
       <ScrollToTop />
       <Header />
       <main>
