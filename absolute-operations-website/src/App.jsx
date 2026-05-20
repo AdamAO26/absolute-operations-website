@@ -20,9 +20,48 @@ function ScrollToTop() {
   return null;
 }
 
+function RefreshOnReturn() {
+  useEffect(() => {
+    let leftPage = false;
+
+    const markLeftPage = () => {
+      leftPage = true;
+    };
+
+    const refreshIfReturning = () => {
+      if (leftPage) {
+        window.location.reload();
+      }
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'hidden') {
+        markLeftPage();
+      }
+
+      if (document.visibilityState === 'visible') {
+        refreshIfReturning();
+      }
+    };
+
+    window.addEventListener('blur', markLeftPage);
+    window.addEventListener('focus', refreshIfReturning);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      window.removeEventListener('blur', markLeftPage);
+      window.removeEventListener('focus', refreshIfReturning);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, []);
+
+  return null;
+}
+
 export default function App() {
   return (
     <>
+      <RefreshOnReturn />
       <ScrollToTop />
       <Header />
       <main>
