@@ -17,7 +17,6 @@ const initialForm = {
 
 export default function ContactForm() {
   const [form, setForm] = useState(initialForm);
-  const [files, setFiles] = useState([]);
   const [status, setStatus] = useState('idle');
   const [message, setMessage] = useState('');
 
@@ -34,8 +33,6 @@ export default function ContactForm() {
     event.preventDefault();
     setStatus('loading');
     setMessage('');
-
-    const fileNames = files.map((file) => file.name).join(', ');
 
     const emailBody = `
 Full Name
@@ -59,11 +56,8 @@ ${form.timeline}
 Service Interest
 ${form.service}
 
-Project File Uploads
-${fileNames || 'No files uploaded'}
-
 Project File Link
-${form.fileLink || 'Not provided'}
+${form.fileLink}
 
 Project Description
 ${form.description}
@@ -73,11 +67,6 @@ ${form.ndaAcknowledged ? 'Yes' : 'No'}
     `.trim();
 
     const payload = new FormData();
-
-    files.forEach((file) => {
-      payload.append('attachment', file);
-    });
-
     payload.append('subject', `New Project Intake from ${form.name}`);
     payload.append('name', form.name);
     payload.append('email', form.email);
@@ -86,8 +75,7 @@ ${form.ndaAcknowledged ? 'Yes' : 'No'}
     payload.append('Project Location', form.location);
     payload.append('Project Timeline', form.timeline);
     payload.append('Service Interest', form.service);
-    payload.append('Project File Uploads', fileNames || 'No files uploaded');
-    payload.append('Project File Link', form.fileLink || 'Not provided');
+    payload.append('Project File Link', form.fileLink);
     payload.append('message', emailBody);
 
     try {
@@ -108,7 +96,6 @@ ${form.ndaAcknowledged ? 'Yes' : 'No'}
       setStatus('success');
       setMessage('Your project intake was submitted successfully. We will review it and follow up soon.');
       setForm(initialForm);
-      setFiles([]);
       event.currentTarget.reset();
     } catch (error) {
       setStatus('error');
@@ -117,7 +104,7 @@ ${form.ndaAcknowledged ? 'Yes' : 'No'}
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit} encType="multipart/form-data">
+    <form className="contact-form" onSubmit={handleSubmit}>
       <label>
         Full Name
         <input name="name" value={form.name} onChange={updateField} required />
@@ -166,23 +153,14 @@ ${form.ndaAcknowledged ? 'Yes' : 'No'}
       </label>
 
       <label>
-        Project File Upload
-        <input
-          type="file"
-          name="attachment"
-          multiple
-          onChange={(event) => setFiles(Array.from(event.target.files || []))}
-        />
-      </label>
-
-      <label>
         Project File Link
         <input
           type="url"
           name="fileLink"
           value={form.fileLink}
           onChange={updateField}
-          placeholder="Google Drive, Dropbox, or OneDrive link"
+          placeholder="Paste a Google Drive, Dropbox, or OneDrive share link"
+          required
         />
       </label>
 

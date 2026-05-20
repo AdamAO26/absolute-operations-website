@@ -69,14 +69,17 @@ button, input, textarea, select { font: inherit; }
 /* Scaled down logo height to fit cleanly in a standard navbar */
 .brand-logo {
   height: 38px;
-  width: auto;
+  width: clamp(150px, 16vw, 240px);
+  max-width: none;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
 }
 
 @media (max-width: 1700px) {
   .brand-logo {
     height: 34px;
+    width: clamp(135px, 15vw, 220px);
   }
 }
 
