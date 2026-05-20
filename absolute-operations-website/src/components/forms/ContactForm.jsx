@@ -17,11 +17,13 @@ const initialForm = {
 
 export default function ContactForm() {
   const [form, setForm] = useState(initialForm);
+  const [files, setFiles] = useState([]);
   const [status, setStatus] = useState('idle');
   const [message, setMessage] = useState('');
 
   function updateField(event) {
     const { name, value, type, checked } = event.target;
+
     setForm((current) => ({
       ...current,
       [name]: type === 'checkbox' ? checked : value
@@ -32,6 +34,8 @@ export default function ContactForm() {
     event.preventDefault();
     setStatus('loading');
     setMessage('');
+
+    const fileNames = files.map((file) => file.name).join(', ');
 
     const emailBody = `
 Full Name
@@ -55,6 +59,9 @@ ${form.timeline}
 Service Interest
 ${form.service}
 
+Project File Uploads
+${fileNames || 'No files uploaded'}
+
 Project File Link
 ${form.fileLink || 'Not provided'}
 
@@ -66,6 +73,11 @@ ${form.ndaAcknowledged ? 'Yes' : 'No'}
     `.trim();
 
     const payload = new FormData();
+
+    files.forEach((file) => {
+      payload.append('attachment', file);
+    });
+
     payload.append('subject', `New Project Intake from ${form.name}`);
     payload.append('name', form.name);
     payload.append('email', form.email);
@@ -74,6 +86,7 @@ ${form.ndaAcknowledged ? 'Yes' : 'No'}
     payload.append('Project Location', form.location);
     payload.append('Project Timeline', form.timeline);
     payload.append('Service Interest', form.service);
+    payload.append('Project File Uploads', fileNames || 'No files uploaded');
     payload.append('Project File Link', form.fileLink || 'Not provided');
     payload.append('message', emailBody);
 
@@ -86,13 +99,17 @@ ${form.ndaAcknowledged ? 'Yes' : 'No'}
         }
       });
 
+      const result = await response.json().catch(() => ({}));
+
       if (!response.ok) {
-        throw new Error('Unable to send your request right now.');
+        throw new Error(result.error || 'Unable to send your request right now.');
       }
 
       setStatus('success');
       setMessage('Your project intake was submitted successfully. We will review it and follow up soon.');
       setForm(initialForm);
+      setFiles([]);
+      event.currentTarget.reset();
     } catch (error) {
       setStatus('error');
       setMessage(error.message || 'Something went wrong. Please try again.');
@@ -100,7 +117,7 @@ ${form.ndaAcknowledged ? 'Yes' : 'No'}
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit}>
+    <form className="contact-form" onSubmit={handleSubmit} encType="multipart/form-data">
       <label>
         Full Name
         <input name="name" value={form.name} onChange={updateField} required />
@@ -146,6 +163,16 @@ ${form.ndaAcknowledged ? 'Yes' : 'No'}
           <option>Multiple Services</option>
           <option>Not Sure Yet</option>
         </select>
+      </label>
+
+      <label>
+        Project File Upload
+        <input
+          type="file"
+          name="attachment"
+          multiple
+          onChange={(event) => setFiles(Array.from(event.target.files || []))}
+        />
       </label>
 
       <label>
