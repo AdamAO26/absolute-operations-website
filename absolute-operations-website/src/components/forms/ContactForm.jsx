@@ -1,44 +1,137 @@
-export default function ContactForm() {
-  return (
-    <form
-      className="contact-form"
-      action="https://formsubmit.co/braden@absoluteoperations.com"
-      method="POST"
-      encType="multipart/form-data"
-    >
-      <input type="hidden" name="_subject" value="New Absolute Operations Project Intake" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_captcha" value="true" />
+import { useState } from 'react';
 
+const FORM_ENDPOINT = 'https://formspree.io/f/xpqnqklw';
+
+const initialForm = {
+  name: '',
+  company: '',
+  email: '',
+  phone: '',
+  location: '',
+  timeline: '',
+  service: 'Electrical',
+  fileLink: '',
+  description: '',
+  ndaAcknowledged: false
+};
+
+export default function ContactForm() {
+  const [form, setForm] = useState(initialForm);
+  const [status, setStatus] = useState('idle');
+  const [message, setMessage] = useState('');
+
+  function updateField(event) {
+    const { name, value, type, checked } = event.target;
+    setForm((current) => ({
+      ...current,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    setStatus('loading');
+    setMessage('');
+
+    const emailBody = `
+Full Name
+${form.name}
+
+Company
+${form.company}
+
+Email
+${form.email}
+
+Phone
+${form.phone}
+
+Project Location
+${form.location}
+
+Project Timeline
+${form.timeline}
+
+Service Interest
+${form.service}
+
+Project File Link
+${form.fileLink || 'Not provided'}
+
+Project Description
+${form.description}
+
+NDA/IP Acknowledgement
+${form.ndaAcknowledged ? 'Yes' : 'No'}
+    `.trim();
+
+    const payload = new FormData();
+    payload.append('subject', `New Project Intake from ${form.name}`);
+    payload.append('name', form.name);
+    payload.append('email', form.email);
+    payload.append('company', form.company);
+    payload.append('phone', form.phone);
+    payload.append('Project Location', form.location);
+    payload.append('Project Timeline', form.timeline);
+    payload.append('Service Interest', form.service);
+    payload.append('Project File Link', form.fileLink || 'Not provided');
+    payload.append('message', emailBody);
+
+    try {
+      const response = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        body: payload,
+        headers: {
+          Accept: 'application/json'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error('Unable to send your request right now.');
+      }
+
+      setStatus('success');
+      setMessage('Your project intake was submitted successfully. We will review it and follow up soon.');
+      setForm(initialForm);
+    } catch (error) {
+      setStatus('error');
+      setMessage(error.message || 'Something went wrong. Please try again.');
+    }
+  }
+
+  return (
+    <form className="contact-form" onSubmit={handleSubmit}>
       <label>
         Full Name
-        <input name="Full Name" required />
+        <input name="name" value={form.name} onChange={updateField} required />
       </label>
 
       <label>
         Company
-        <input name="Company" required />
+        <input name="company" value={form.company} onChange={updateField} required />
       </label>
 
       <label>
         Email
-        <input type="email" name="email" required />
+        <input type="email" name="email" value={form.email} onChange={updateField} required />
       </label>
 
       <label>
         Phone
-        <input type="tel" name="Phone" required />
+        <input type="tel" name="phone" value={form.phone} onChange={updateField} required />
       </label>
 
       <label>
         Project Location
-        <input name="Project Location" required />
+        <input name="location" value={form.location} onChange={updateField} required />
       </label>
 
       <label>
         Project Timeline
         <input
-          name="Project Timeline"
+          name="timeline"
+          value={form.timeline}
+          onChange={updateField}
           placeholder="Example: 30 days, Q3, urgent, planning phase"
           required
         />
@@ -46,7 +139,7 @@ export default function ContactForm() {
 
       <label>
         Service Interest
-        <select name="Service Interest" defaultValue="Electrical">
+        <select name="service" value={form.service} onChange={updateField}>
           <option>Electrical</option>
           <option>Mechanical</option>
           <option>Manufacturing</option>
@@ -56,30 +149,46 @@ export default function ContactForm() {
       </label>
 
       <label>
-        Optional File Upload
-        <input type="file" name="attachment" />
+        Project File Link
+        <input
+          type="url"
+          name="fileLink"
+          value={form.fileLink}
+          onChange={updateField}
+          placeholder="Google Drive, Dropbox, or OneDrive link"
+        />
       </label>
 
       <label className="full-width">
         Project Description
         <textarea
-          name="Project Description"
+          name="description"
           rows="7"
+          value={form.description}
+          onChange={updateField}
           required
-          placeholder="Describe the general scope, problem, goals, site conditions, and desired result. Do not include confidential IP before an NDA."
+          placeholder="Describe the general scope, problem, goals, site conditions, and desired result."
         />
       </label>
 
       <label className="checkbox full-width">
-        <input type="checkbox" name="NDA/IP Acknowledgement" value="Yes" required />
+        <input
+          type="checkbox"
+          name="ndaAcknowledged"
+          checked={form.ndaAcknowledged}
+          onChange={updateField}
+          required
+        />
         <span>
           I understand that I should not submit confidential intellectual property or sensitive technical information before an NDA is in place.
         </span>
       </label>
 
-      <button className="button button-primary full-width" type="submit">
-        Submit Project Intake
+      <button className="button button-primary full-width" type="submit" disabled={status === 'loading'}>
+        {status === 'loading' ? 'Submitting...' : 'Submit Project Intake'}
       </button>
+
+      {message && <p className={`form-message form-message--${status}`}>{message}</p>}
     </form>
   );
 }
