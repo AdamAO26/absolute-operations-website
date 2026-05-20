@@ -27,6 +27,7 @@ img { max-width: 100%; display: block; }
 
 button, input, textarea, select { font: inherit; }
 
+/* Fixed Header: Tightened padding to shrink background height */
 .site-header {
   position: fixed;
   top: 0;
@@ -36,7 +37,7 @@ button, input, textarea, select { font: inherit; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px clamp(18px, 4vw, 56px);
+  padding: 12px clamp(18px, 4vw, 56px);
   color: var(--white);
   transition: background 220ms ease, backdrop-filter 220ms ease, border 220ms ease;
 }
@@ -65,8 +66,9 @@ button, input, textarea, select { font: inherit; }
   background: rgba(255,255,255,0.08);
 }
 
+/* Scaled down logo height to fit cleanly in a standard navbar */
 .brand-logo {
-  height: 350px;
+  height: 38px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -74,7 +76,7 @@ button, input, textarea, select { font: inherit; }
 
 @media (max-width: 1700px) {
   .brand-logo {
-    height: 200px;
+    height: 34px;
   }
 }
 
@@ -99,6 +101,7 @@ button, input, textarea, select { font: inherit; }
   transform: translateY(-1px);
   background: rgba(255, 255, 255, 0.12);
 }
+
 .menu-button {
   display: none;
   width: 44px;
@@ -388,7 +391,8 @@ textarea { resize: vertical; }
   .menu-button { display: block; }
   .nav {
     position: fixed;
-    top: 76px;
+    /* Adjusted top alignment to sit precisely below the shortened header */
+    top: 64px;
     left: 14px;
     right: 14px;
     display: none;
