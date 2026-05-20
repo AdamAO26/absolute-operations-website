@@ -67,28 +67,49 @@ export default async function handler(request) {
       });
     }
 
+        const submittedFields = [
+      ['Full Name', fields.name],
+      ['Company', fields.company],
+      ['Email', fields.email],
+      ['Phone', fields.phone],
+      ['Project Location', fields.location],
+      ['Project Timeline', fields.timeline],
+      ['Service Interest', fields.service],
+      ['Optional File Upload', attachment && attachment.size > 0 ? attachment.name : 'No file uploaded'],
+      ['Project Description', fields.description],
+      ['NDA/IP Acknowledgement', fields.ndaAcknowledged === 'true' ? 'Yes' : 'No']
+    ];
+
     const html = `
       <h1>New Absolute Operations Project Intake</h1>
-      <p><strong>Name:</strong> ${escapeHtml(fields.name)}</p>
-      <p><strong>Company:</strong> ${escapeHtml(fields.company)}</p>
-      <p><strong>Email:</strong> ${escapeHtml(fields.email)}</p>
-      <p><strong>Phone:</strong> ${escapeHtml(fields.phone)}</p>
-      <p><strong>Project Location:</strong> ${escapeHtml(fields.location)}</p>
-      <p><strong>Timeline:</strong> ${escapeHtml(fields.timeline)}</p>
-      <p><strong>Service Interest:</strong> ${escapeHtml(fields.service)}</p>
-      <p><strong>NDA/IP Acknowledgement:</strong> ${escapeHtml(fields.ndaAcknowledged)}</p>
-      <h2>Project Description</h2>
-      <p>${escapeHtml(fields.description).replaceAll('\n', '<br />')}</p>
+      ${submittedFields
+        .map(([label, value]) => `
+          <p>
+            <strong>${escapeHtml(label)}</strong><br />
+            ${escapeHtml(value || 'Not provided').replaceAll('\n', '<br />')}
+          </p>
+        `)
+        .join('')}
     `;
 
-    await resend.emails.send({
+    const text = submittedFields
+      .map(([label, value]) => `${label}\n${value || 'Not provided'}`)
+      .join('\n\n');
+
+    const { error } = await resend.emails.send({
       from: process.env.CONTACT_FROM_EMAIL || 'Absolute Operations Website <onboarding@resend.dev>',
       to: process.env.CONTACT_TO_EMAIL || 'braden@absoluteoperations.com',
       replyTo: fields.email,
       subject: `New Project Intake from ${fields.name} - ${fields.company}`,
       html,
+      text,
       attachments
     });
+
+    if (error) {
+      console.error(error);
+      return json({ error: error.message || 'Unable to send email.' }, 500);
+    }
 
     return json({ ok: true });
   } catch (error) {
