@@ -61,7 +61,6 @@ function RefreshOnReturn() {
 export default function App() {
   return (
     <>
-      <RefreshOnReturn />
       <ScrollToTop />
       <Header />
       <main>
