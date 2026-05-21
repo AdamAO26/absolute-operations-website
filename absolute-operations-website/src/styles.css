@@ -37,7 +37,7 @@ button, input, textarea, select { font: inherit; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px clamp(18px, 4vw, 56px);
+  padding: 16px clamp(18px, 4vw, 56px);
   color: var(--white);
   transition: background 220ms ease, backdrop-filter 220ms ease, border 220ms ease;
 }
@@ -51,7 +51,7 @@ button, input, textarea, select { font: inherit; }
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   font-weight: 700;
   letter-spacing: 0.02em;
 }
@@ -68,7 +68,7 @@ button, input, textarea, select { font: inherit; }
 
 /* Scaled down logo height to fit cleanly in a standard navbar */
 .brand-logo {
-  height: 38px;
+  height: auto;
   width: clamp(130px, 14vw, 200px);
   max-width: none;
   display: block;
@@ -78,8 +78,8 @@ button, input, textarea, select { font: inherit; }
 
 @media (max-width: 1700px) {
   .brand-logo {
-    height: 34px;
-    width: clamp(130px, 14vw, 200px);
+    width: clamp(140px, 18vw, 190px);
+    height: auto;
   }
 }
 
