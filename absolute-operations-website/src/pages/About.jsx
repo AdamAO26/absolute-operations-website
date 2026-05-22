@@ -24,11 +24,6 @@ const aboutSections = [
   }
 ];
 
-const values = [
-  ['Accessible', 'We help bring big-business quality to small-business budgets.'],
-  ['Inventive', 'We approach each project with creativity, technical skill, and a focus on real-world use.'],
-  ['Empowering', 'We give owners the tools, designs, and engineering support they need to compete with confidence.']
-];
 
 export default function About() {
   return (
