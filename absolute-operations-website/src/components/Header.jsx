@@ -11,6 +11,8 @@ const rightNavItems = [
   ['Contact', '/contact']
 ];
 
+const mobileNavItems = [...leftNavItems, ...rightNavItems];
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -36,7 +38,7 @@ export default function Header() {
 
   return (
     <header className={`site-header ${scrolled ? 'site-header--scrolled' : ''}`}>
-      <nav className={`nav nav-left ${open ? 'nav--open' : ''}`}>
+      <nav className="nav nav-left">
         {renderNavItems(leftNavItems)}
       </nav>
 
@@ -48,7 +50,7 @@ export default function Header() {
         />
       </Link>
 
-      <nav className={`nav nav-right ${open ? 'nav--open' : ''}`}>
+      <nav className="nav nav-right">
         {renderNavItems(rightNavItems)}
       </nav>
 
@@ -62,6 +64,10 @@ export default function Header() {
         <span />
         <span />
       </button>
+
+      <nav className={`mobile-nav ${open ? 'mobile-nav--open' : ''}`}>
+        {renderNavItems(mobileNavItems)}
+      </nav>
     </header>
   );
 }
