@@ -56,9 +56,7 @@ button, input, textarea, select { font: inherit; }
   letter-spacing: 0.02em;
 }
 
-.brand-centered {
-  justify-self: center;
-}
+.brand-centered { justify-self: center; }
 
 .brand-mark {
   display: grid;
@@ -87,13 +85,8 @@ button, input, textarea, select { font: inherit; }
   font-weight: 700;
 }
 
-.nav-left {
-  justify-content: flex-end;
-}
-
-.nav-right {
-  justify-content: flex-start;
-}
+.nav-left { justify-content: flex-end; }
+.nav-right { justify-content: flex-start; }
 
 .nav a,
 .mobile-nav a {
@@ -181,9 +174,7 @@ button, input, textarea, select { font: inherit; }
   background: var(--white);
 }
 
-.mobile-nav {
-  display: none;
-}
+.mobile-nav { display: none; }
 
 .hero {
   position: relative;
@@ -195,18 +186,40 @@ button, input, textarea, select { font: inherit; }
   overflow: hidden;
 }
 
-.hero-bg {
+.hero-slideshow {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.04);
+  animation: heroSlideshow 18s infinite;
+}
+
+.hero-slide::after {
+  content: "";
   position: absolute;
   inset: 0;
   background:
     linear-gradient(120deg, rgba(6, 22, 40, 0.94), rgba(6, 22, 40, 0.68)),
-    radial-gradient(circle at 70% 30%, rgba(198, 204, 211, 0.28), transparent 32%),
-    url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1800&q=80') center/cover;
-  transform: scale(1.03);
+    radial-gradient(circle at 70% 30%, rgba(198, 204, 211, 0.28), transparent 32%);
 }
+
+.hero-slide--center { background-position: center; }
+.hero-slide--top { background-position: center top; }
+.hero-slide--right { background-position: right center; }
+.hero-slide--left { background-position: left center; }
+.hero-slide--bottom { background-position: center bottom; }
 
 .hero-content {
   position: relative;
+  z-index: 1;
   width: min(980px, 100%);
   text-align: center;
   animation: riseIn 800ms ease both;
@@ -271,6 +284,7 @@ h3 {
 
 .scroll-cue {
   position: absolute;
+  z-index: 1;
   bottom: 26px;
   font-size: 0.78rem;
   letter-spacing: 0.2em;
@@ -419,6 +433,7 @@ input, textarea, select {
   background: #f8fafc;
   color: var(--navy);
 }
+
 textarea { resize: vertical; }
 .full-width { grid-column: 1 / -1; }
 .checkbox { display: flex; align-items: flex-start; gap: 12px; line-height: 1.45; }
@@ -453,6 +468,14 @@ textarea { resize: vertical; }
 @keyframes riseIn {
   from { opacity: 0; transform: translateY(28px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroSlideshow {
+  0% { opacity: 0; }
+  8% { opacity: 1; }
+  33% { opacity: 1; }
+  42% { opacity: 0; }
+  100% { opacity: 0; }
 }
 
 @media (max-width: 900px) {
@@ -519,7 +542,8 @@ textarea { resize: vertical; }
   .split-section,
   .service-detail,
   .contact-layout,
-  .case-row {
+  .case-row,
+  .services-overview {
     grid-template-columns: 1fr;
   }
 
@@ -542,7 +566,7 @@ textarea { resize: vertical; }
   .hero {
     align-items: end;
     text-align: left;
-    padding-bottom: 92px;
+    padding: 132px 22px 92px;
   }
 
   .hero-content {
@@ -728,12 +752,6 @@ textarea { resize: vertical; }
 .services-cta p {
   margin: 0 auto 28px;
   color: rgba(255, 255, 255, 0.78);
-}
-
-@media (max-width: 900px) {
-  .services-overview {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 640px) {
