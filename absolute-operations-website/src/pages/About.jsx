@@ -47,15 +47,6 @@ export default function About() {
           </Reveal>
         </section>
       ))}
-
-      <section className="section values-grid">
-        {values.map(([title, text], index) => (
-          <Reveal key={title} delay={index * 80} className="value-card">
-            <h3>{title}</h3>
-            <p>{text}</p>
-          </Reveal>
-        ))}
-      </section>
     </>
   );
 }
