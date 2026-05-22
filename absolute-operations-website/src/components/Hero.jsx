@@ -15,38 +15,61 @@ const heroSlides = [
   }
 ];
 
-export default function Hero() {
+export default function Hero({
+  eyebrow = 'Engineering for small-business scale',
+  title = 'Welcome to Absolute Operations, LLC',
+  text = 'Practical electrical, mechanical, and manufacturing engineering support for businesses ready to move with precision.',
+  primaryLabel = 'Start a Project',
+  primaryTo = '/contact',
+  secondaryLabel = 'View Services',
+  secondaryTo = '/services',
+  slideshow = true,
+  backgroundImage
+}) {
   return (
     <section className="hero">
-      <div className="hero-slideshow" aria-hidden="true">
-        {heroSlides.map((slide, index) => (
-          <div
-            key={slide.image}
-            className={`hero-slide ${slide.position}`}
-            style={{
-              backgroundImage: `url(${slide.image})`,
-              animationDelay: `${index * 6}s`
-            }}
-          />
-        ))}
-      </div>
+      {slideshow ? (
+        <div className="hero-slideshow" aria-hidden="true">
+          {heroSlides.map((slide, index) => (
+            <div
+              key={slide.image}
+              className={`hero-slide ${slide.position}`}
+              style={{
+                backgroundImage: `url(${slide.image})`,
+                animationDelay: `${index * 6}s`
+              }}
+            />
+          ))}
+        </div>
+      ) : (
+        <div
+          className="hero-slide hero-slide-static"
+          aria-hidden="true"
+          style={{
+            backgroundImage: `url(${backgroundImage || heroSlides[0].image})`
+          }}
+        />
+      )}
 
       <div className="hero-content">
-        <p className="eyebrow">Engineering for small-business scale</p>
+        <p className="eyebrow">{eyebrow}</p>
 
-        <h1>Welcome to Absolute Operations, LLC</h1>
+        <h1>{title}</h1>
 
-        <p className="hero-text">
-          Practical electrical, mechanical, and manufacturing engineering support for businesses ready to move with precision.
-        </p>
+        <p className="hero-text">{text}</p>
 
         <div className="hero-actions">
-          <Link className="button button-primary" to="/contact">
-            Start a Project
-          </Link>
-          <Link className="button button-secondary" to="/services">
-            View Services
-          </Link>
+          {primaryLabel && primaryTo && (
+            <Link className="button button-primary" to={primaryTo}>
+              {primaryLabel}
+            </Link>
+          )}
+
+          {secondaryLabel && secondaryTo && (
+            <Link className="button button-secondary" to={secondaryTo}>
+              {secondaryLabel}
+            </Link>
+          )}
         </div>
       </div>
 

@@ -11,8 +11,8 @@ export default function Home() {
     <>
       <Hero
         eyebrow="Engineering for small-business scale"
-        title={company.tagline}
-        text="Absolute Operations, LLC helps small businesses compete through practical electrical, mechanical, and manufacturing engineering solutions."
+        title="Welcome to Absolute Operations, LLC"
+        text="Practical electrical, mechanical, and manufacturing engineering support for businesses ready to move with precision."
         primaryLabel="Start a Project"
         primaryTo="/contact"
         secondaryLabel="View Services"
