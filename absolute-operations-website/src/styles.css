@@ -72,7 +72,7 @@ button, input, textarea, select { font: inherit; }
   width: clamp(130px, 14vw, 200px);
   max-width: none;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 
