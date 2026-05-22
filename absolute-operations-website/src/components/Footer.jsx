@@ -5,11 +5,11 @@ export default function Footer() {
     <footer className="footer">
       <div>
         <strong>Absolute Operations, LLC</strong>
-        <p>Electrical, mechanical, and manufacturing engineering for small businesses ready to compete.</p>
+        <p>Enterprise Innovation for Small Business.</p>
       </div>
       <div className="footer-links">
         <Link to="/services">Services</Link>
-        <Link to="/contact">Start a Project</Link>
+        <Link to="/contact">Contact Us</Link>
       </div>
     </footer>
   );
