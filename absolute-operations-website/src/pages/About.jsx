@@ -27,7 +27,6 @@ const aboutSections = [
 const values = [
   ['Accessible', 'We help bring big-business quality to small-business budgets.'],
   ['Inventive', 'We approach each project with creativity, technical skill, and a focus on real-world use.'],
-  ['Practical', 'We design solutions that can be built, tested, improved, and used by real businesses.'],
   ['Empowering', 'We give owners the tools, designs, and engineering support they need to compete with confidence.']
 ];
 
