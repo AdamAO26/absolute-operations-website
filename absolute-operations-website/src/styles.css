@@ -565,3 +565,201 @@ textarea { resize: vertical; }
     font-size: clamp(3rem, 16vw, 5rem);
   }
 }
+
+/* Services page process timeline */
+.services-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(30px, 5vw, 72px);
+  align-items: start;
+  background: var(--white);
+}
+
+.services-overview-copy {
+  max-width: 720px;
+}
+
+.services-overview-copy p:not(.eyebrow),
+.process-heading p:not(.eyebrow),
+.services-cta p {
+  color: #4a5968;
+  font-size: 1.08rem;
+  line-height: 1.72;
+}
+
+.service-bid-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.service-bid-card {
+  min-height: 210px;
+  padding: clamp(22px, 3vw, 30px);
+  border: 1px solid rgba(6, 22, 40, 0.1);
+  border-radius: 8px;
+  background: #f8fafc;
+  box-shadow: 0 14px 46px rgba(6, 22, 40, 0.06);
+}
+
+.service-bid-card h3 {
+  margin-bottom: 12px;
+}
+
+.service-bid-card p {
+  margin: 0;
+  color: #52606f;
+  line-height: 1.65;
+}
+
+.design-process-section {
+  background: var(--off-white);
+}
+
+.process-heading {
+  width: min(960px, 100%);
+  margin-bottom: clamp(36px, 6vw, 74px);
+}
+
+.design-timeline {
+  position: relative;
+  display: grid;
+  gap: 26px;
+}
+
+.design-timeline::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  bottom: 28px;
+  left: 44px;
+  width: 2px;
+  background: rgba(6, 22, 40, 0.16);
+}
+
+.design-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: clamp(18px, 4vw, 44px);
+  align-items: start;
+}
+
+.design-step-marker {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 88px;
+  height: 88px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: var(--navy);
+  color: var(--white);
+  box-shadow: 0 18px 46px rgba(6, 22, 40, 0.18);
+}
+
+.design-step-marker span {
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.design-step-content {
+  padding: clamp(24px, 3vw, 36px);
+  border: 1px solid rgba(6, 22, 40, 0.1);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 18px 70px rgba(6, 22, 40, 0.08);
+}
+
+.design-step-label {
+  margin-bottom: 10px;
+  color: var(--silver-dark);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.design-step-content h3 {
+  margin-bottom: 14px;
+}
+
+.design-step-content p {
+  color: #435160;
+  line-height: 1.68;
+}
+
+.design-step-content ul {
+  display: grid;
+  gap: 10px;
+  margin: 22px 0;
+  padding-left: 20px;
+  color: #2c3b4a;
+  line-height: 1.55;
+}
+
+.deliverable {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  border-left: 4px solid var(--navy);
+  border-radius: 8px;
+  background: #eef3f8;
+  color: var(--navy);
+}
+
+.deliverable span {
+  color: #435160;
+  line-height: 1.5;
+}
+
+.services-cta {
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+}
+
+.services-cta .reveal {
+  width: min(880px, 100%);
+  margin: 0 auto;
+}
+
+.services-cta p {
+  margin: 0 auto 28px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+@media (max-width: 900px) {
+  .services-overview {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .service-bid-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .design-timeline::before {
+    left: 28px;
+  }
+
+  .design-step {
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .design-step-marker {
+    width: 56px;
+    height: 56px;
+  }
+
+  .design-step-marker span {
+    font-size: 0.82rem;
+  }
+
+  .design-step-content {
+    padding: 20px;
+  }
+}
