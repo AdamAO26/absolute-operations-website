@@ -1,11 +1,13 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-const navItems = [
+const leftNavItems = [
   ['Home', '/'],
-  ['Services', '/services'],
+  ['Services', '/services']
+];
+
+const rightNavItems = [
   ['About', '/about'],
-  ['Portfolio', '/portfolio'],
   ['Contact', '/contact']
 ];
 
@@ -20,29 +22,46 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const renderNavItems = (items) =>
+    items.map(([label, path]) => (
+      <NavLink
+        key={path}
+        to={path}
+        onClick={() => setOpen(false)}
+        className={({ isActive }) => isActive ? 'active' : ''}
+      >
+        {label}
+      </NavLink>
+    ));
+
   return (
     <header className={`site-header ${scrolled ? 'site-header--scrolled' : ''}`}>
-      <Link to="/" className="brand" aria-label="Absolute Operations home">
-  <img
-    src="/transparent_main_logo.png"
-    alt="Absolute Operations, LLC logo"
-    className="brand-logo"
-  />
-</Link>
+      <nav className={`nav nav-left ${open ? 'nav--open' : ''}`}>
+        {renderNavItems(leftNavItems)}
+      </nav>
 
-      <button className="menu-button" type="button" onClick={() => setOpen(!open)} aria-label="Toggle navigation">
+      <Link to="/" className="brand brand-centered" aria-label="Absolute Operations home">
+        <img
+          src="/transparent_main_logo.png"
+          alt="Absolute Operations, LLC logo"
+          className="brand-logo"
+        />
+      </Link>
+
+      <nav className={`nav nav-right ${open ? 'nav--open' : ''}`}>
+        {renderNavItems(rightNavItems)}
+      </nav>
+
+      <button
+        className="menu-button"
+        type="button"
+        onClick={() => setOpen(!open)}
+        aria-label="Toggle navigation"
+      >
         <span />
         <span />
         <span />
       </button>
-
-      <nav className={`nav ${open ? 'nav--open' : ''}`}>
-        {navItems.map(([label, path]) => (
-          <NavLink key={path} to={path} onClick={() => setOpen(false)} className={({ isActive }) => isActive ? 'active' : ''}>
-            {label}
-          </NavLink>
-        ))}
-      </nav>
     </header>
   );
 }
