@@ -24,7 +24,6 @@ const aboutSections = [
   }
 ];
 
-
 export default function About() {
   return (
     <>
@@ -42,6 +41,7 @@ export default function About() {
             <p className="eyebrow">{section.eyebrow}</p>
             <h2>{section.title}</h2>
           </Reveal>
+
           <Reveal delay={100}>
             <p className="large-copy">{section.text}</p>
           </Reveal>
