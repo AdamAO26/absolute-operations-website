@@ -6,7 +6,7 @@ export default function Portfolio() {
   return (
     <>
       <Hero
-        eyebrow="Portfolio"
+        eyebrow=""
         title="Project cards with room for detailed case studies."
         text="These examples are placeholders that can be replaced with real client-approved work after review and confidentiality clearance."
         primaryLabel="Start Your Project"

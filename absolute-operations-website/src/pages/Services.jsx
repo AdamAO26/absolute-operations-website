@@ -90,7 +90,7 @@ export default function Services() {
   return (
     <>
       <Hero
-        eyebrow="Services"
+        eyebrow=""
         title="From product idea to build-ready design."
         text="Absolute Operations helps small business owners evaluate, design, prototype, and prepare physical products for manufacturing with a clear step-by-step process."
         primaryLabel="Start With a Free Consultation"

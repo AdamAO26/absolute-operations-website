@@ -54,7 +54,7 @@ export default function Hero({
       <div className="hero-content">
         <p className="eyebrow">{eyebrow}</p>
 
-        <h1>{title}</h1>
+        <h1 className="hero-title" data-text={title}>{title}</h1>
 
         <p className="hero-text">{text}</p>
 

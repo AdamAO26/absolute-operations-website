@@ -88,6 +88,29 @@ button, input, textarea, select { font: inherit; }
 .nav-left { justify-content: flex-end; }
 .nav-right { justify-content: flex-start; }
 
+.usa-badge {
+  position: fixed;
+  top: 18px;
+  right: 22px;
+  z-index: 130;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  pointer-events: none;
+}
+
+.usa-flag {
+  width: 24px;
+  height: 16px;
+  object-fit: cover;
+  display: block;
+  flex: 0 0 auto;
+}
+
 .nav a,
 .mobile-nav a {
   opacity: 0.88;
@@ -222,6 +245,7 @@ button, input, textarea, select { font: inherit; }
   z-index: 1;
   width: min(980px, 100%);
   text-align: center;
+  overflow: visible;
   animation: riseIn 800ms ease both;
 }
 
@@ -238,13 +262,15 @@ h1, h2, h3, p { margin-top: 0; }
 
 h1 {
   font-size: clamp(3rem, 8vw, 7.8rem);
-  line-height: 0.92;
-  letter-spacing: -0.075em;
-  margin-bottom: 24px;
+  line-height: 1.08;
+  letter-spacing: -0.050em;
+  margin-bottom: 40px;
 }
 
 .hero h1 {
   color: transparent;
+  padding-bottom: 0.18em;
+  overflow: visible;
   background:
     linear-gradient(
       105deg,
@@ -261,7 +287,10 @@ h1 {
   background-size: 260% auto;
   -webkit-background-clip: text;
   background-clip: text;
-  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.34));
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.28),
+    0 14px 24px rgba(0, 0, 0, 0.34);
   animation: machinedShine 4.8s ease-in-out infinite;
 }
 
@@ -525,6 +554,15 @@ textarea { resize: vertical; }
     display: flex;
     justify-content: space-between;
     padding: 16px 28px;
+  }
+
+  .usa-badge {
+    display: none;
+  }
+
+  .nav-left,
+  .nav-right {
+    display: none;
   }
 
   .nav-left,

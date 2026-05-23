@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Hero
-        eyebrow="Engineering for small-business scale"
+        eyebrow=""
         title="Welcome to Absolute Operations, LLC"
         text="Practical electrical, mechanical, and manufacturing engineering support for businesses ready to move with precision."
         primaryLabel="Start a Project"
@@ -41,7 +41,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section dark-section">
+      {/* <section className="section dark-section">
         <Reveal>
           <p className="eyebrow">Portfolio Preview</p>
           <h2>Project examples designed for clarity.</h2>
@@ -51,7 +51,7 @@ export default function Home() {
             <ProjectCard key={project.slug} project={project} delay={index * 80} />
           ))}
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

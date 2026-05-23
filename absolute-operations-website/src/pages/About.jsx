@@ -5,7 +5,7 @@ export default function About() {
   return (
     <>
       <Hero
-        eyebrow="About Absolute Operations"
+        eyebrow=""
         title="Engineering access for small-business ambition."
         text="We help entrepreneurs and small business owners turn ideas into practical products, custom technology, and competitive business solutions."
         primaryLabel="Start a Project"

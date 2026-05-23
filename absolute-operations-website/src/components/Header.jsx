@@ -54,6 +54,16 @@ export default function Header() {
         {renderNavItems(rightNavItems)}
       </nav>
 
+      <div className="usa-badge" aria-label="PROUDLY OPERATING IN THE USA">
+        <span>PROUDLY OPERATING IN THE USA</span>
+        <img
+         className="usa-flag"
+         src="/usa-flag1.jpg"
+          alt=""
+          aria-hidden="true"
+        />
+      </div>
+
       <button
         className="menu-button"
         type="button"
