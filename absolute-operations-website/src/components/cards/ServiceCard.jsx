@@ -5,7 +5,7 @@ export default function ServiceCard({ service, delay = 0 }) {
   return (
     <Reveal delay={delay} className="service-card">
       <h3>{service.shortTitle}</h3>
-      <p>{service.summary}</p>
+      <p>{service.text}</p>
       <Link to="/services">Learn more</Link>
     </Reveal>
   );
