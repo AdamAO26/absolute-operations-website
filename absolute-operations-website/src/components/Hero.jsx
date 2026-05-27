@@ -16,13 +16,13 @@ const heroSlides = [
 ];
 
 export default function Hero({
-  eyebrow = 'Engineering for small-business scale',
-  title = 'Welcome to Absolute Operations, LLC',
-  text = 'Practical electrical, mechanical, and manufacturing engineering support for businesses ready to move with precision.',
-  primaryLabel = 'Start a Project',
-  primaryTo = '/contact',
-  secondaryLabel = 'View Services',
-  secondaryTo = '/services',
+  eyebrow = '',
+  title = '',
+  text = '',
+  primaryLabel = '',
+  primaryTo = '',
+  secondaryLabel = '',
+  secondaryTo = '',
   slideshow = true,
   backgroundImage
 }) {
@@ -52,25 +52,31 @@ export default function Hero({
       )}
 
       <div className="hero-content">
-        <p className="eyebrow">{eyebrow}</p>
+        {eyebrow && <p className="eyebrow">{eyebrow}</p>}
 
-        <h1 className="hero-title" data-text={title}>{title}</h1>
+        {title && (
+          <h1 className="hero-title" data-text={title}>
+            {title}
+          </h1>
+        )}
 
-        <p className="hero-text">{text}</p>
+        {text && <p className="hero-text">{text}</p>}
 
-        <div className="hero-actions">
-          {primaryLabel && primaryTo && (
-            <Link className="button button-primary" to={primaryTo}>
-              {primaryLabel}
-            </Link>
-          )}
+        {(primaryLabel || secondaryLabel) && (
+          <div className="hero-actions">
+            {primaryLabel && primaryTo && (
+              <Link className="button button-primary" to={primaryTo}>
+                {primaryLabel}
+              </Link>
+            )}
 
-          {secondaryLabel && secondaryTo && (
-            <Link className="button button-secondary" to={secondaryTo}>
-              {secondaryLabel}
-            </Link>
-          )}
-        </div>
+            {secondaryLabel && secondaryTo && (
+              <Link className="button button-secondary" to={secondaryTo}>
+                {secondaryLabel}
+              </Link>
+            )}
+          </div>
+        )}
       </div>
 
       <div className="scroll-cue">Scroll</div>

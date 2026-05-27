@@ -32,21 +32,10 @@ export default function Home() {
           <p className="eyebrow">Core Services</p>
           <h2>Engineering support built around real operations.</h2>
         </Reveal>
+
         <div className="service-grid">
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} delay={index * 80} />
-          ))}
-        </div>
-      </section>
-
-      <section className="section dark-section">
-        <Reveal>
-          <p className="eyebrow">Portfolio Preview</p>
-          <h2>Project examples designed for clarity.</h2>
-        </Reveal>
-        <div className="project-grid">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.slug} project={project} delay={index * 80} />
           ))}
         </div>
       </section>
