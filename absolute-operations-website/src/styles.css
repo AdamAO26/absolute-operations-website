@@ -335,7 +335,7 @@ h3 {
 
 .button:hover { transform: translateY(-2px); }
 .button-primary { background: var(--white); color: var(--navy); }
-.button-secondary { border-color: rgba(255,255,255,0.55); color: var(--white); }
+.button-secondary {  background: var(--white); color: var(--navy);  }
 
 .scroll-cue {
   position: absolute;

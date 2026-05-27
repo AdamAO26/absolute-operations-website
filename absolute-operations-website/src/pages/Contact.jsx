@@ -7,7 +7,7 @@ export default function Contact() {
     <>
       <Hero
         eyebrow=""
-        title="Tell us about YOUR project"
+        title="Let’s Turn YOUR Idea Into Something Bigger."
         text="Use this intake form to share basic project information. Please do not submit proprietary designs, formulas, source code, trade secrets, or other confidential intellectual property before an NDA is in place."
         primaryLabel="View Services"
         primaryTo="/services"
