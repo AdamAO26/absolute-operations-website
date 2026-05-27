@@ -136,7 +136,6 @@ ${form.ndaAcknowledged ? 'Yes' : 'No'}
           name="timeline"
           value={form.timeline}
           onChange={updateField}
-          placeholder="Example: 30 days, Q3, urgent, planning phase"
           required
         />
       </label>
@@ -159,7 +158,7 @@ ${form.ndaAcknowledged ? 'Yes' : 'No'}
           name="fileLink"
           value={form.fileLink}
           onChange={updateField}
-          placeholder="Paste a Google Drive, Dropbox, or OneDrive share link"
+          placeholder="Google Drive, Dropbox, or OneDrive share link"
           required
         />
       </label>
