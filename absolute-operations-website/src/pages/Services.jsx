@@ -102,7 +102,7 @@ export default function Services() {
           <p className="eyebrow">What We Bid</p>
           <h2>Practical product development for small businesses.</h2>
           <p>
-            You do not need a finished engineering plan before talking with us. Bring the product idea, the problem you are trying to solve, and any sketches, notes, or links you already have. We help turn that starting point into a realistic path forward.
+            You do not need a finished technical plan before talking with us. Bring the product idea, the problem you are trying to solve, and any sketches, notes, or links you already have. We help turn that starting point into a realistic path forward.
           </p>
         </Reveal>
 

@@ -10,7 +10,7 @@ export default function Home() {
       <Hero
         eyebrow=""
         title="Welcome to Absolute Operations, LLC"
-        text="Practical electrical, mechanical, and manufacturing engineering support for businesses ready to move with precision."
+        text="Practical electrical, mechanical, and manufacturing support for businesses ready to move with precision."
         primaryLabel="Start a Project"
         primaryTo="/contact"
         secondaryLabel="View Services"
@@ -30,7 +30,7 @@ export default function Home() {
       <section className="section card-section">
         <Reveal>
           <p className="eyebrow">Core Services</p>
-          <h2>Engineering support built around real operations.</h2>
+          <h2>Technical support built around real operations.</h2>
         </Reveal>
 
         <div className="service-grid">

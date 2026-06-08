@@ -6,7 +6,7 @@ export default function About() {
     <>
       <Hero
         eyebrow=""
-        title="Engineering access for small-business ambition."
+        title="Technical, System, and Product access for small-business ambition."
         text="We help entrepreneurs and small business owners turn ideas into practical products, custom technology, and competitive business solutions."
         primaryLabel="Start a Project"
         primaryTo="/contact"
@@ -15,11 +15,11 @@ export default function About() {
       <section className="section split-section">
         <Reveal>
           <p className="eyebrow">Our Mission</p>
-          <h2>Expert engineering should not only belong to large companies.</h2>
+          <h2>Expert Technical innovation should not only belong to large companies.</h2>
         </Reveal>
         <Reveal delay={100}>
           <p className="large-copy">
-            At Absolute Operations, our mission is to help small business owners and entrepreneurs turn strong ideas into real, competitive products. We believe custom design, advanced technology, and professional engineering support should be accessible to businesses that do not have massive corporate budgets.
+            At Absolute Operations, our mission is to help small business owners and entrepreneurs turn strong ideas into real, competitive products. We believe custom design, advanced technology, and creative industrial support should be accessible to businesses that do not have massive corporate budgets.
           </p>
         </Reveal>
       </section>
@@ -31,7 +31,7 @@ export default function About() {
         </Reveal>
         <Reveal delay={100}>
           <p className="large-copy">
-            We are proudly pro-small business. Our goal is to create affordable, custom-built products and engineering solutions that help entrepreneurs compete with larger companies, stand out in their market, and grow with confidence.
+            We are proudly pro-small business. Our goal is to create affordable, custom-built products and solutions that help entrepreneurs compete with larger companies, stand out in their market, and grow with confidence.
           </p>
         </Reveal>
       </section>
@@ -55,7 +55,7 @@ export default function About() {
         </Reveal>
         <Reveal delay={100}>
           <p className="large-copy">
-            Many entrepreneurs have great ideas but do not always have the equipment, resources, or engineering team needed to bring those ideas to life. Absolute Operations helps close that gap with professional design and development services that are affordable, practical, and built with purpose.
+            Many entrepreneurs have great ideas but do not always have the equipment, resources, or the technical capabilities needed to bring those ideas to life. Absolute Operations helps close that gap with professional design and development services that are affordable, practical, and built with purpose.
           </p>
         </Reveal>
       </section>
