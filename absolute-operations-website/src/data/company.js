@@ -5,7 +5,7 @@ export const company = {
   phone: '(000) 000-0000',
   location: 'City, State',
   mission: 'Our mission is to bring cutting-edge technologies to small businesses for a fraction of the price of large competitors, creating stronger and more competitive opportunities for small-business operators.',
-  purpose: 'Many small businesses need high-level engineering insight but cannot afford oversized consulting structures. Absolute Operations bridges that gap with focused electrical, mechanical, and manufacturing support that is scaled to the client, the project, and the real operating environment.',
+  purpose: 'Many small businesses need high-level technical design insight but cannot afford oversized consulting structures. Absolute Operations bridges that gap with focused electrical, mechanical, and manufacturing support that is scaled to the client, the project, and the real operating environment.',
   values: [
     ['Practical', 'We focus on realistic solutions that businesses can implement, maintain, and grow with.'],
     ['Competitive', 'We help small businesses strengthen capabilities that are often reserved for larger companies.'],
