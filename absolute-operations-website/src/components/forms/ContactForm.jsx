@@ -96,7 +96,6 @@ ${form.ndaAcknowledged ? 'Yes' : 'No'}
       setStatus('success');
       setMessage('Your project intake was submitted successfully. We will review it and follow up soon.');
       setForm(initialForm);
-      event.currentTarget.reset();
     } catch (error) {
       setStatus('error');
       setMessage(error.message || 'Something went wrong. Please try again.');
