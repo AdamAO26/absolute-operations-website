@@ -7,10 +7,8 @@ const initialForm = {
   company: '',
   email: '',
   phone: '',
-  location: '',
   timeline: '',
   service: 'Electrical',
-  fileLink: '',
   description: '',
   ndaAcknowledged: false
 };
