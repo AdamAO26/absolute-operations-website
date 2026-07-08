@@ -7,8 +7,10 @@ const initialForm = {
   company: '',
   email: '',
   phone: '',
+  location: '',
   timeline: '',
   service: 'Electrical',
+  fileLink: '',
   description: '',
   ndaAcknowledged: false
 };
@@ -157,7 +159,6 @@ ${form.ndaAcknowledged ? 'Yes' : 'No'}
           value={form.fileLink}
           onChange={updateField}
           placeholder="Google Drive, Dropbox, or OneDrive share link"
-          required
         />
       </label>
 
