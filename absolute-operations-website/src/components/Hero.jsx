@@ -13,6 +13,16 @@ const heroSlides = [
     image: '/slideshow-pictures-hero/titaniumprop2.JPG',
     position: 'hero-slide--right'
   }
+  {
+    image: 'slideshow-pictures-hero/crossectionmotos.jpg,
+    position: 'hero-slide--right'
+  }
+  {
+    image: 'slideshow-pictures-hero/earthstation.HEIC,
+    position: 'hero-slide--right'
+  }
+
+
 ];
 
 export default function Hero({
