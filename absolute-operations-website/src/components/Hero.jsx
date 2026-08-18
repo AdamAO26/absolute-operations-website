@@ -14,11 +14,11 @@ const heroSlides = [
     position: 'hero-slide--right'
   }
   {
-    image: 'slideshow-pictures-hero/crossectionmotos.jpg,
+    image: 'slideshow-pictures-hero/crossectionmotos.jpg',
     position: 'hero-slide--right'
   }
   {
-    image: 'slideshow-pictures-hero/earthstation.HEIC,
+    image: 'slideshow-pictures-hero/earthstation.HEIC',
     position: 'hero-slide--right'
   }
 
