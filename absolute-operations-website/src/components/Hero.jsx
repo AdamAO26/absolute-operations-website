@@ -12,13 +12,13 @@ const heroSlides = [
   {
     image: '/slideshow-pictures-hero/titaniumprop2.JPG',
     position: 'hero-slide--right'
-  }
+  },
   {
     image: 'slideshow-pictures-hero/crossectionmotos.jpg',
     position: 'hero-slide--right'
-  }
+  },
   {
-    image: 'slideshow-pictures-hero/earthstation.HEIC',
+    image: 'slideshow-pictures-hero/earthstation.jpg',
     position: 'hero-slide--right'
   }
 
@@ -46,7 +46,7 @@ export default function Hero({
               className={`hero-slide ${slide.position}`}
               style={{
                 backgroundImage: `url(${slide.image})`,
-                animationDelay: `${index * 6}s`
+                animationDelay: `${index * 4}s`
               }}
             />
           ))}
